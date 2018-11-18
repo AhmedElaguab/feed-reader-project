@@ -31,6 +31,17 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         it('should have a URL defined and not empty', function () {
+             let isDefined = true;
+
+             allFeeds.forEach((rss) => {
+               if (rss.url === undefined || rss.url === '') {
+                 isDefined = false;
+               }
+             });
+
+             expect(isDefined).toBe(true);
+         });
 
 
         /* TODO: Write a test that loops through each feed
