@@ -48,6 +48,17 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('should have a name defined and not empty', function () {
+             let isNamed = true;
+
+             allFeeds.forEach((rss) => {
+               if (rss.name === undefined || rss.name === '') {
+                 isNamed = false;
+               }
+             });
+
+             expect(isNamed).toBe(true);
+         });
     });
 
 
