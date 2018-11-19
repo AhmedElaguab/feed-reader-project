@@ -120,12 +120,28 @@ $(function() {
         });
 
         /* TODO: Write a new test suite named "New Feed Selection" */
-        describe('New Feed Selection', function () {
+        describe('New Feed Selection', function() {
+
+            let cssTricksEntries;
+            beforeEach(function(done) {
+                loadFeed(1, done);
+            });
 
             /* TODO: Write a test that ensures when a new feed is loaded
-            * by the loadFeed function that the content actually changes.
-            * Remember, loadFeed() is asynchronous.
-            */
+             * by the loadFeed function that the content actually changes.
+             * Remember, loadFeed() is asynchronous.
+             */
+            it('should change content', function(done) {
+                cssTricksEntries = $('.entry-link');
+                let isContentChanged;
+                if (udacityEntries[0].host === cssTricksEntries[0].host) {
+                    isContentChanged = true;
+                } else {
+                    isContentChanged = false;
+                }
+                expect(isContentChanged).toBe(false);
+                done();
+            });
 
         });
 
