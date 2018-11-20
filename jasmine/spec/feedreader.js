@@ -32,16 +32,10 @@ $(function () {
          * and that the URL is not empty.
          */
         it('should have a URL defined and not empty', function () {
-            let isDefined = true;
-
             allFeeds.forEach((rss) => {
-                // Check if feeds url is undefined or empty
-                if (rss.url === undefined || rss.url === '') {
-                    isDefined = false;
-                }
+                expect(rss.url).toBeDefined();
+                expect(rss.url.length).toBeGreaterThan(0);
             });
-
-            expect(isDefined).toBe(true);
         });
 
 
@@ -50,15 +44,10 @@ $(function () {
          * and that the name is not empty.
          */
         it('should have a name defined and not empty', function () {
-            let isNamed = true;
-            // Check if feeds name is undefined or empty
             allFeeds.forEach((rss) => {
-                if (rss.name === undefined || rss.name === '') {
-                    isNamed = false;
-                }
+                expect(rss.name).toBeDefined();
+                expect(rss.name.length).toBeGreaterThan(0);
             });
-
-            expect(isNamed).toBe(true);
         });
     });
 
@@ -73,13 +62,7 @@ $(function () {
          */
 
         it('should be hidden by default', function () {
-            // Declare the Body Element variable
-            const bodyEl = document.body;
-            // Check if the body element has a class called 'menu-hidden'
-            // to ensure that the menu is hidden.
-            let isHidden = bodyEl.classList.contains('menu-hidden');
-
-            expect(isHidden).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         /* TODO: Write a test that ensures the menu changes
@@ -89,24 +72,16 @@ $(function () {
          */
 
         it('should change visibility when the menu icon is clicked', function () {
-            // Declare the Body Element & menu icon variables
-            const bodyEl = document.body;
-            const menuIcon = document.getElementsByClassName('menu-icon-link')[0];
-            let isHidden;
+            // Declare the menu icon variable
+            const menuIcon = $('.menu-icon-link')[0];
 
             // When the menu icon is clicked
             menuIcon.click();
-            // Check if the body element has a class called 'menu-hidden'
-            // to ensure that the menu is not hidden.
-            isHidden = bodyEl.classList.contains('menu-hidden');
-            expect(isHidden).toBe(false);
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
             // When the menu icon is clicked again
             menuIcon.click();
-            // Check if the body element has a class called 'menu-hidden'
-            // to ensure that the menu is hidden.
-            isHidden = bodyEl.classList.contains('menu-hidden');
-            expect(isHidden).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
     });
@@ -179,4 +154,5 @@ $(function () {
         });
 
     });
+
 }());
