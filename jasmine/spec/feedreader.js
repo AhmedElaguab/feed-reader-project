@@ -113,18 +113,18 @@ $(function () {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function () {
-        // Declare Udacity Blog entries element
-        let udacityEntries;
+        // Declare Css Tricks entries element
+        let cssTricksEntries;
 
         beforeEach(function (done) {
             /* Invoke the loadFeed() function with two parameters:
-             * - The first parameter is '0' which reffer to Udacity Blog feed
+             * - The first parameter is '1' which reffer to Css Tricks feed
              *   object in allFeed array.
              * - The second parameter is 'done' which is used to ensure that
              *   function is called and completed its work before the test is
              *   started
              */
-            loadFeed(0, done);
+            loadFeed(1, done);
         });
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -135,25 +135,25 @@ $(function () {
          */
         it('number should be at least one', function (done) {
             // Assign Udacity BLog entries variable
-            udacityEntries = $('.entry-link');
-            expect(udacityEntries.length).toBeGreaterThan(0);
+            cssTricksEntries = $('.entry-link');
+            expect(cssTricksEntries.length).toBeGreaterThan(0);
             done();
         });
 
         /* TODO: Write a new test suite named "New Feed Selection" */
         describe('New Feed Selection', function () {
-            // Declare Css Tricks entries element
-            let cssTricksEntries;
+            // Declare Udacity Blog entries element
+            let udacityEntries;
 
             beforeEach(function (done) {
                 /* Invoke the loadFeed() function with two parameters:
-                 * - The first parameter is '1' which reffer to Css Tricks feed
+                 * - The first parameter is '0' which reffer to Udacity Blog feed
                  *   object in allFeed array.
                  * - The second parameter is 'done' which is used to ensure that
                  *   function is called and completed its work before the test is
                  *   started
                  */
-                loadFeed(1, done);
+                loadFeed(0, done);
             });
 
             /* TODO: Write a test that ensures when a new feed is loaded
@@ -162,7 +162,7 @@ $(function () {
              */
             it('should change content', function (done) {
                 // Assign Css Tricks entries variable
-                cssTricksEntries = $('.entry-link');
+                udacityEntries = $('.entry-link');
                 let isContentChanged;
 
                 // Check if the two entries feed host is the same or not
