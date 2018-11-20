@@ -167,9 +167,6 @@ $(function () {
 
                 // Check if the two entries feed host is the same or not
                 if (udacityEntries[0].host === cssTricksEntries[0].host) {
-                    console.log(udacityEntries[0].host);
-                    console.log(cssTricksEntries[0].host);
-
                     isContentChanged = false;
                 } else {
                     isContentChanged = true;
